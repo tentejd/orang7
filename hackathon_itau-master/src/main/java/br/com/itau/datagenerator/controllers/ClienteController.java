@@ -33,13 +33,13 @@ public class ClienteController extends BaseCrudController<Cliente, Integer> {
 		}
 	
 	@RequestMapping(value = "/{id}", method= RequestMethod.GET)
-	public ModelAndView detalhesEvento(@PathVariable("id") int id) {
-		Cliente cliente = repository.findById(id);
+	public ModelAndView detalhesPlataforma(@PathVariable("id") int id) {
+		Plataforma plataforma = platRep.findById(id);
 		ModelAndView mv = new ModelAndView("evento/detalhesPlataforma");
-		mv.addObject("cliente", cliente);
+		mv.addObject("plataforma", plataforma);
 		
-		Iterable<Plataforma> plataformas = platRep.findByCliente(cliente);
-		mv.addObject("plataformas", plataformas);
+		Iterable<Cliente> clientes = repository.findByPlataforma(plataforma);
+		mv.addObject("clientes", clientes);
 		return mv;
 	}
 	

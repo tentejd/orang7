@@ -23,13 +23,11 @@
 		    </div>
 		  </nav>
   	</header>
-	<div th:each="cliente:${cliente}" class="container detalhesEvento">
+	<div th:each="plataforma:${plataforma}" class="container detalhesEvento">
 	<h5>Detalhes do Movimento</h5>
 		<div class="row">
-			<p>Nome: <span th:text="${cliente.nome}"></span></p>
-			<p>Local: <span th:text="${evento.plataforma}"></span></p>
-			<p>Data: <span th:text="${evento.documento}"></span></p>
-			<p>Horário: <span th:text="${evento.segmento}"></span></p>
+			<p>Nome: <span th:text="${plataforma.id}"></span></p>
+			<p>Local: <span th:text="${plataforma.plataforma}"></span></p>
 		</div>
 		
 	</div>
@@ -49,9 +47,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="plataforma: ${plataformas}">
-				<td><span th:text="${plataforma.nomeConvidado}"></span></td>
-				<td><span th:text="${plataforma.rg}"></span></td>
+			<tr th:each="cliente: ${clientes}">
+				<td><span th:text="${cliente.nome}"></span></td>
+				<td><span th:text="${cliente.cliente}"></span></td>
 			</tr>
 		</tbody>
 	</table>

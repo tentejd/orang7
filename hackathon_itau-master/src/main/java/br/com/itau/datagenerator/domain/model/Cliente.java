@@ -4,6 +4,10 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
+
 @Entity
 @Table(name="tb_cadcli")
 @AttributeOverride(name="id", column = @Column(name = "id_cliente"))
@@ -17,7 +21,7 @@ public class Cliente extends BaseModel<Integer> implements Serializable{
     private String segmento;
 
     @Column(name = "plataforma")
-    private String plataforma;
+    private Plataforma plataforma;
 
     public Cliente() {
     }
@@ -50,11 +54,12 @@ public class Cliente extends BaseModel<Integer> implements Serializable{
         this.segmento = segmento;
     }
 
-    public String getPlataforma() {
+    public Plataforma getPlataforma() {
         return plataforma;
     }
 
-    public void setPlataforma(String plataforma) {
+    public void setPlataforma(Plataforma plataforma) {
         this.plataforma = plataforma;
     }
-}
+    
+	}
