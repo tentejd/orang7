@@ -12,7 +12,7 @@ import br.com.itau.datagenerator.domain.model.*;
 @Repository
 public interface AtivoRepository extends CrudRepository<Ativo, Integer> {
 
-	@Query("Select a from Ativo a innerjoin Movimento m on a.codigo = m.idAtivo.codigo where m.idCliente.codigo = : idCliente")
+	@Query("Select a from Ativo a inner join Movimento m on a.codigo = m.idAtivo.codigo where m.idCliente.codigo = :idCliente")
 	public List<Ativo> listarAtivos(@Param("idCliente") Integer idCliente);
 	
 }

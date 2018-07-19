@@ -21,7 +21,7 @@ public class Ativo implements Serializable {
 	private int codigo;
 
 	@Column(name = "plataforma")
-	private Plataforma plataforma;
+	private int plataforma;
 
 	@Column(name = "cod_ativo")
 	private char codAtivo;
