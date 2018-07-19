@@ -2,10 +2,14 @@ package br.com.itau.datagenerator.domain.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +21,7 @@ public class Ativo implements Serializable {
 	private int codigo;
 
 	@Column(name = "plataforma")
-	private int plataforma;
+	private Plataforma plataforma;
 
 	@Column(name = "cod_ativo")
 	private char codAtivo;
@@ -27,6 +31,17 @@ public class Ativo implements Serializable {
 
 	@Column(name = "dt_venc_atv")
 	private Date dataVencimento;
+	
+	@OneToMany(targetEntity= Movimento.class, fetch= FetchType.EAGER, mappedBy="idAtivo")
+	private Set<Movimento> listMov;
+
+	public Set<Movimento> getListMov() {
+		return listMov;
+	}
+
+	public void setListMov(Set<Movimento> listMov) {
+		this.listMov = listMov;
+	}
 
 	public int getCodigo() {
 		return codigo;

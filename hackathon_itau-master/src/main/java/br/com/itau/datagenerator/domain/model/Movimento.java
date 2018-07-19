@@ -37,8 +37,9 @@ public class Movimento implements Serializable {
 	@Column(name = "tipo_c_v")
 	private char tipo;
 
-	@Column(name = "id_ativo")
-	private int idAtivo;
+	@ManyToOne
+	@JoinColumn(name = "id_ativo")
+	private Ativo idAtivo;
 
 	@Column(name = "qtde")
 	private int quantidade;
@@ -82,11 +83,11 @@ public class Movimento implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public int getIdAtivo() {
+	public Ativo getIdAtivo() {
 		return idAtivo;
 	}
 
-	public void setIdAtivo(int idAtivo) {
+	public void setIdAtivo(Ativo idAtivo) {
 		this.idAtivo = idAtivo;
 	}
 
