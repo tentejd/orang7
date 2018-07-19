@@ -28,7 +28,7 @@ public class ClienteController {
 
 	@RequestMapping("/listaClientes")
 	public ModelAndView listaClientes() {
-		ModelAndView mv = new ModelAndView("index");
+		ModelAndView mv = new ModelAndView("Cliente/listaClientes");
 		Iterable<Cliente> clientes = repository.findAll();
 		mv.addObject("clientes", clientes);
 		return mv;
