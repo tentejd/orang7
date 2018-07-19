@@ -3,13 +3,12 @@ package br.com.itau.datagenerator.domain.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.itau.datagenerator.domain.model.Cliente;
-import br.com.itau.datagenerator.domain.model.Plataforma;
+import br.com.itau.datagenerator.domain.model.*;
 
 
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
-	Cliente findById(int codigo);
+	Cliente findByCodigo(int codigo);
 	
 	Iterable<Cliente> findByPlataforma(Plataforma plataforma);
 }

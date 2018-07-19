@@ -33,7 +33,7 @@ public class ClienteController {
 	
 	@RequestMapping(value = "/{codigo}", method= RequestMethod.GET)
 	public ModelAndView detalhesMovCliente(@PathVariable("codigo") int id) {
-		Cliente cliente = repository.findById(id);
+		Cliente cliente = repository.findByCodigo(id);
 		ModelAndView mv = new ModelAndView("/Cliente/detalhesMovimento");
 		mv.addObject("cliente", cliente);
 		
