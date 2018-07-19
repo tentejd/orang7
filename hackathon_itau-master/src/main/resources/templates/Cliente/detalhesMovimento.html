@@ -16,38 +16,53 @@
 </head>
 <body>
 	<div class="container">
-	<div th:each="cliente:${cliente}" class="container detalhesEvento">
-	<h5>Detalhes do Movimento</h5>
-		<div class="row">
-			<p>Nome: <span th:text="${cliente.nome}"></span></p>
-			<p>Documento: <span th:text="${cliente.documento}"></span></p>
-		</div>
-	</div>
-	<div th:each="movimentos: ${movimentos}" class="container detalhesMovimento">
-		<h5>Detalhes do Movimento</h5>
-			<div class="row">
-				<p><span th:text="${movimentos.tipo}"></span></p>
-				<p><span th:text="${movimentos.quantidade}"></span></p>
-				<p><span th:text="${movimentos.valor}"></span></p>
+	
+	<h2>Cliente</h2>	
+	<div th:each="cliente:${cliente}" class="container detalhesEvento">	
+		<div class="row col-md-12">
+			<div class="col-md-6">
+				<label class="control-label col-md-2">Nome:</label><span class="col-md-10" th:text="${cliente.nome}"></span>
+			</div>
+			<div class="col-md-6">
+				<label class="control-label col-md-2">Documento:</label><span class="col-md-10" th:text="${cliente.documento}"></span>
 			</div>
 		</div>
-	<div class="container formConvidado">
-		<form method="post">
-			Nome: <input type="text" value="" name="nomeConvidado"/>
-			RG: <input type="text" value="" name="rg"/>
-			<button type="submit" class="waves-effect waves-light btn">Adicionar Convidado</button>
-		</form>
+		<div class="row col-md-12">
+			<div class="col-md-6">
+				<label class="control-label col-md-2">Plataforma:</label><span class="col-md-10" th:text="${cliente.plataforma}"></span>
+			</div>
+			<div class="col-md-6">
+				<label class="control-label col-md-2">Segmento:</label><span class="col-md-10" th:text="${cliente.segmento}"></span>
+			</div>
+		</div>
 	</div>
-	<table class="container tabelaConvidado">
+	
+	
+	<h2>Movimentos</h2>
+	
+	<table class="display table table-hover table-primary" id="movimentosTable">
 		<thead>
-			<tr>
-				<th>Plataforma</th>
-				<th>plat</th>
-			</tr>
+			<th>Tipo</th>
+			<th>Quantidade</th>
+			<th>Valor</th>
 		</thead>
+		<tbody>
+			<tr th:each="movimentos: ${movimentos}">
+				<td><span th:text="${movimentos.tipo}"></span></td>
+				<td><span th:text="${movimentos.quantidade}"></span></td>
+				<td><span th:text="${movimentos.valor}"></span></td>
+			</tr>
+		</tbody>
 	</table>
 	
-<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js">
+
+$(document).ready( function () {
+	 var table = $('#movimentosTable').DataTable({	
+	        "pagingType": "full_numbers"
+	 })
+});
+</script>
 </div>
 </body>
 </html>
