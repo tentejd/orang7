@@ -1,0 +1,5 @@
+package com.hackathon.az1.repository;
+
+public interface ClienteRepository {
+
+}

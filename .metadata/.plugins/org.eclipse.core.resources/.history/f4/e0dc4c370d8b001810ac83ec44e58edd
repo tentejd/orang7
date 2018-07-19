@@ -1,0 +1,8 @@
+package com.hackathon.orang7.datasource;
+
+@Bean
+@Primary
+@ConfigurationProperties(prefix="spring.datasource")
+public DataSource Orang7Datasource() {
+    return DataSourceBuilder.create().build();
+}

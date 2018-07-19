@@ -1,0 +1,17 @@
+package com.hackathon.orang7;
+
+import javax.activation.DataSource;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+
+public class Orang7DBConfig {
+	@Bean
+	@Primary
+	@ConfigurationProperties(prefix="spring.datasourceOrang7")
+	public DataSource get() {
+	    return (DataSource) DataSourceBuilder.create().build();
+	}
+}

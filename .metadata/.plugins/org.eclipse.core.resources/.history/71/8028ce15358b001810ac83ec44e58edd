@@ -1,0 +1,63 @@
+package com.hackathon.az1.models;
+
+import javax.persistence.Entity;
+import javax.validation.constraints.NotBlank;
+
+@Entity
+public class Cliente {
+
+	@NotBlank
+	private int id_cliente;
+	
+	@NotBlank
+	private String nome;
+	
+	@NotBlank
+	private long no_documento;
+	
+	@NotBlank
+	private int segmn_clie;
+	
+	@NotBlank
+	private int plataforma;
+
+	public int getId_cliente() {
+		return id_cliente;
+	}
+
+	public void setId_cliente(int id_cliente) {
+		this.id_cliente = id_cliente;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public long getNo_documento() {
+		return no_documento;
+	}
+
+	public void setNo_documento(long no_documento) {
+		this.no_documento = no_documento;
+	}
+
+	public int getSegmn_clie() {
+		return segmn_clie;
+	}
+
+	public void setSegmn_clie(int segmn_clie) {
+		this.segmn_clie = segmn_clie;
+	}
+
+	public int getPlataforma() {
+		return plataforma;
+	}
+
+	public void setPlataforma(int plataforma) {
+		this.plataforma = plataforma;
+	}
+}

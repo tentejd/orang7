@@ -1,0 +1,15 @@
+package com.hackathon.orang7;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan({"com.hackathon.orang7.controllers"})
+public class Orang7Application
+{
+	public static void main(String[] args) {
+		SpringApplication.run(Orang7Application.class, args);
+	}
+}

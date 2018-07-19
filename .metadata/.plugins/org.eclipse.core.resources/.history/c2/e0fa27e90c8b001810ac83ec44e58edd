@@ -1,0 +1,6 @@
+@Bean
+@Primary
+@ConfigurationProperties(prefix="spring.datasource")
+public DataSource primaryDataSource() {
+    return DataSourceBuilder.create().build();
+}

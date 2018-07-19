@@ -1,0 +1,11 @@
+package com.hackathon.orang7.controllers;
+
+@Controller
+public class AppController {
+    
+	@RequestMapping("/")
+	public String index() {
+		return "index";
+	}
+    
+}

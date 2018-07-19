@@ -1,6 +1,7 @@
 package br.com.itau.datagenerator.domain.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -10,10 +11,15 @@ import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="tb_cadcli")
-@AttributeOverride(name="id", column = @Column(name = "id_cliente"))
-public class Cliente extends BaseModel<Integer> implements Serializable{
+public class Cliente implements Serializable {
+	
+	@Id
+	@Column(name="id_cliente")
+    private int codigo;
+	
     @Column(name="nome")
     private String nome;
+    
     @Column(name="no_documento")
     private String documento;
 
@@ -21,16 +27,23 @@ public class Cliente extends BaseModel<Integer> implements Serializable{
     private String segmento;
 
     @Column(name = "plataforma")
-    private Plataforma plataforma;
-
+    private String plataforma;
+    
     public Cliente() {
+    	
     }
 
-    public Cliente(int id) {
-        this.setId(id);
-    }
+	public int getCodigo() {
+		return codigo;
+	}
 
-    public String getNome() {
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+
+	public String getNome() {
         return nome;
     }
 
@@ -54,11 +67,11 @@ public class Cliente extends BaseModel<Integer> implements Serializable{
         this.segmento = segmento;
     }
 
-    public Plataforma getPlataforma() {
+    public String getPlataforma() {
         return plataforma;
     }
 
-    public void setPlataforma(Plataforma plataforma) {
+    public void setPlataforma(String plataforma) {
         this.plataforma = plataforma;
     }
     

@@ -1,0 +1,49 @@
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+	<title>Movimentos</title>
+	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <!--Import materialize.css-->
+     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+     <!--Let browser know website is optimized for mobile-->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     
+     <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+	<header>
+		 <nav>
+		    <div class="nav-wrapper">
+		      <a href="#" class="brand-logo">Lista de Movimenmtos</a>
+		      <ul id="nav-mobile" class="right hide-on-med-and-down">
+		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar evento</a></li>
+		      </ul>
+		    </div>
+		  </nav>
+  	</header>
+	<table class="container">
+		<thead>
+			<th>data</th>
+			<th>idCliente</th>
+			<th>tipo</th>
+			<th>idAtivo</th>
+			<th>quantidade</th>
+			<th>valor</th>
+		</thead>
+		<tbody>
+			<tr th:each = "movimento:${movimentos}">
+				<td><span th:text="${movimento.data}"></span></td>
+				<td><span th:text="${movimento.idCliente}"></span></td>
+				<td><span th:text="${movimento.tipo}"></span></td>
+				<td><span th:text="${movimento.idAtivo}"></span></td>
+				<td><span th:text="${movimento.quantidade}"></span></td>
+				<td><span th:text="${movimento.valor}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

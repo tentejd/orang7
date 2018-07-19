@@ -1,0 +1,11 @@
+INDEX VERSION 1.131+C:\Users\hsmabuchi\Documents\Projetos\orang7\.metadata\.plugins\org.eclipse.jdt.core
+4042171018.index
+1807585750.index
+1350270142.index
+1837391703.index
+2401856817.index
+1198609318.index
+2445070658.index
+4124558830.index
+1262846822.index
+116107539.index
