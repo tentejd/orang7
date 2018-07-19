@@ -26,6 +26,12 @@ public class ClienteController {
 	@Autowired
     private MovimentoRepository movRep;
 
+	@RequestMapping("/")
+	public ModelAndView Index() {
+		ModelAndView mv = new ModelAndView("index");
+		return mv;
+	}
+	
 	@RequestMapping("/listaClientes")
 	public ModelAndView listaClientes() {
 		ModelAndView mv = new ModelAndView("Cliente/listaClientes");
