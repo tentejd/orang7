@@ -4,27 +4,31 @@
 <head>
 	<title>Clientes</title>
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-      <!--Import materialize.css-->
-     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
      <!--Let browser know website is optimized for mobile-->
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-     
-     <link rel="stylesheet" href="style/style.css" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+	<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/> 
+	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
 </head>
 <body>
 	<header>
 		 <nav>
 		    <div class="nav-wrapper">
-		      <a href="#" class="brand-logo">Lista de Clientes</a>
+		      <a href="/cliente/listaClientes" class="brand-logo">Lista de Clientes</a>
 		      <ul id="nav-mobile" class="right hide-on-med-and-down">
 		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar evento</a></li>
 		      </ul>
 		    </div>
 		  </nav>
   	</header>
-	<table class="container">
+	<table class="container datatable" id="clientesTable">
 		<thead>
+			<th>ID</th>
 			<th>Plataforma</th>
 			<th>Nome</th>
 			<th>Número Documento</th>
@@ -32,6 +36,7 @@
 		</thead>
 		<tbody>
 			<tr th:each = "cliente:${clientes}">
+				<td><span th:text="${cliente.codigo}"></span></td>
 				<td><span th:text="${cliente.plataforma}"></span></td>
 				<td><span th:text="${cliente.nome}"></span></td>
 				<td><span th:text="${cliente.documento}"></span></td>
@@ -40,6 +45,22 @@
 		</tbody>
 	</table>
 	
-<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script type="text/javascript">
+$(document).ready( function () {
+	 var table = $('#clientesTable').DataTable({
+			"sAjaxSource": "/clientes",
+			"sAjaxDataProp": "",
+			"order": [[ 0, "asc" ]],
+			"aoColumns": [
+			    { "mData": "codigo"},
+		      	{ "mData": "plataforma" },
+				  { "mData": "nome" },
+				  { "mData": "documento" },
+				  { "mData": "segmento" }
+			]
+	 })
+});
+
+</script>
 </body>
 </html>

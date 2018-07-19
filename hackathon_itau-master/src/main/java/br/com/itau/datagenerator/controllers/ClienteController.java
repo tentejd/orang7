@@ -1,5 +1,7 @@
 package br.com.itau.datagenerator.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import br.com.itau.datagenerator.domain.model.Cliente;
 import br.com.itau.datagenerator.domain.model.Movimento;
 import br.com.itau.datagenerator.domain.repository.ClienteRepository;
 import br.com.itau.datagenerator.domain.repository.MovimentoRepository;
+import br.com.itau.datagenerator.service.*;
 
 @Controller
 @RequestMapping("/cliente")
@@ -29,11 +32,16 @@ public class ClienteController {
 		Iterable<Cliente> clientes = repository.findAll();
 		mv.addObject("clientes", clientes);
 		return mv;
-		}
+	}
+
+	@RequestMapping(path="/clientes", method=RequestMethod.GET)
+	public List<Cliente> getAllEmployees(){
+		return ClienteService.getAllClientes();
+	}
 	
 	@RequestMapping(value = "/{codigo}", method= RequestMethod.GET)
 	public ModelAndView detalhesMovCliente(@PathVariable("codigo") int id) {
-		Cliente cliente = repository.findById(id);
+		Cliente cliente = repository.findByCodigo(id);
 		ModelAndView mv = new ModelAndView("/Cliente/detalhesMovimento");
 		mv.addObject("cliente", cliente);
 		
