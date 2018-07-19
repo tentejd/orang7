@@ -30,8 +30,8 @@ public class Movimento implements Serializable {
 	@CreationTimestamp
 	private LocalDateTime data;
 
-	@JoinColumn(name = "columnWithClienteid")
-	@Column(name = "id_cliente")
+	@ManyToOne
+	@JoinColumn(name = "id_cliente")
 	private Cliente idCliente;
 
 	@Column(name = "tipo_c_v")
